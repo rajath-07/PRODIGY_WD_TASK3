@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Opponent</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <!-- Falling X and O symbols -->
+    <span class="symbol" style="left: 10%; animation-duration: 6s;">X</span>
+    <span class="symbol" style="left: 25%; animation-duration: 4s;">O</span>
+    <span class="symbol" style="left: 40%; animation-duration: 5.5s;">X</span>
+    <span class="symbol" style="left: 55%; animation-duration: 3.5s;">O</span>
+    <span class="symbol" style="left: 70%; animation-duration: 5s;">X</span>
+    <span class="symbol" style="left: 85%; animation-duration: 4.5s;">O</span>
+
+    <div class="opponent-container">
+        <h1>Select Opponent</h1>
+        <button class="opponent-btn" onclick="playWithComputer()">Play with Computer</button>
+        <button class="opponent-btn" onclick="playWithTwoPlayers()">Play with 2 Players</button>
+    </div>
+
+    <script>
+        function addAnimationAndNavigate(button, targetPage) {
+            button.classList.add('click-animation');
+            setTimeout(() => {
+                window.location.href = targetPage;
+            }, 800);
+        }
+
+       function playWithComputer() {
+    sessionStorage.setItem('playWithComputer', 'true'); // Store the game mode
+    const button = document.querySelector('.opponent-btn:nth-of-type(1)');
+    addAnimationAndNavigate(button, 'tictactoe.html'); // Redirect to game page
+}
+
+function playWithTwoPlayers() {
+    sessionStorage.setItem('playWithComputer', 'false'); // Store the game mode
+    const button = document.querySelector('.opponent-btn:nth-of-type(2)');
+    addAnimationAndNavigate(button, 'tictactoe.html'); // Redirect to game page
+}    </script>
+</body>
+</html>

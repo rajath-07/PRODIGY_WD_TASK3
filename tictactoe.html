@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="styled.css">
+</head>
+<body>
+    <h1>Tic-Tac-Toe</h1>
+    <div class="game-container">
+        <div class="board" id="board">
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+<span class="symbol" style="left: 10%; animation-duration: 6s;">X</span>
+    <span class="symbol" style="left: 25%; animation-duration: 4s;">O</span>
+    <span class="symbol" style="left: 40%; animation-duration: 5.5s;">X</span>
+    <span class="symbol" style="left: 55%; animation-duration: 3.5s;">O</span>
+    <span class="symbol" style="left: 70%; animation-duration: 5s;">X</span>
+    <span class="symbol" style="left: 85%; animation-duration: 4.5s;">O</span>
+
+        </div>
+        <button id="restartButton">Restart Game</button>
+        <p id="status">Player X's turn</p>
+    </div>
+<canvas id="canvas"></canvas>
+<audio id="winSound" src="C:\lol\raj_html\winning.mp3"></audio>
+<audio id="drawSound" src="C:\lol\raj_html\draw.mp3"></audio>
+    <script src="scripted.js"></script>
+</body>
+</html>

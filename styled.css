@@ -1,0 +1,160 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #3498db; /* Default to Player X's color */
+    transition: background-color 0.5s ease; /* Smooth transition */
+    position: relative;
+    overflow: hidden; /* Prevents elements from overflowing */
+flex-direction: column; /* Align items vertically */
+    text-align: center; /* Center text elements */
+}
+
+/* Styling for Player O's turn */
+body.o-turn {
+    background-color: #e74c3c; /* Red for Player O's turn */
+}
+
+/* Styling for Player X's turn */
+body.x-turn {
+    background-color: #3498db; /* Blue for Player X's turn */
+}
+
+h1 {
+    position: absolute;
+    top: 10px; /* Adjust this to fine-tune the position from the top */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.5em; /* Adjust the font size as needed */
+    color: white;
+    text-align: center;
+    z-index: 999; /* Ensure the title stays on top */
+}
+
+/* Winner message styling */
+.winner-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0); /* Start with a scale of 0 */
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    z-index: 1000;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    opacity: 0; /* Start with opacity 0 */
+    animation: fadeInScale 1s forwards, fadeOut 1s 3s forwards; /* Apply fadeInScale and fadeOut animations */
+}
+
+/* Animation for fading in and scaling */
+@keyframes fadeInScale {
+    0% {
+        transform: translate(-50%, -50%) scale(0); /* Start with scale 0 */
+        opacity: 0; /* Start with opacity 0 */
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2); /* Scale to 1.2 for a zoom-in effect */
+        opacity: 1; /* Fully visible */
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1); /* End with normal scale */
+        opacity: 1; /* Fully visible */
+    }
+}
+
+/* Animation for fading out */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0; /* Fade out */
+        transform: translate(-50%, -50%) scale(0); /* Shrink to 0 */
+    }
+}
+
+/* Disable interactions when the winner message is showing */
+body.winner-active {
+    pointer-events: none; /* Disable all pointer events */
+}
+
+/* Game board container */
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  margin-top: 100px; /* Add a gap between the title and the board */
+}
+
+/* Styling for the board */
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    justify-items: center; /* Center the items in the grid */
+}
+
+/* Styling for each cell */
+.cell {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    background-color: #ffffff;
+    border: 1px solid #333;
+    cursor: pointer;
+}
+
+/* Player X's color */
+.cell.x {
+    color: #3498db;
+}
+
+/* Player O's color */
+.cell.o {
+    color: #e74c3c;
+}
+
+/* Styling for the restart button */
+#restartButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+/* Styling for the status text */
+#status {
+    margin-top: 15px;
+    font-size: 1.2em;
+}
+
+/* Falling symbols */
+.symbol {
+    position: absolute;
+    font-size: 4em; /* Increased font size */
+    color: white;  /* Bright white color */
+    animation: fall 5s linear infinite;
+    pointer-events: none; /* Prevents any interference with button clicks */
+    will-change: transform; /* Optimizes the animation rendering */
+}
+
+/* Keyframes for the falling effect */
+@keyframes fall {
+    from {
+        transform: translate3d(0, -100vh, 0) rotate(0deg); /* Use 3D transforms for better performance */
+    }
+    to {
+        transform: translate3d(0, 100vh, 0) rotate(360deg); /* Use 3D transforms for better performance */
+    }
+}

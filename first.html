@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <!-- Falling X and O symbols -->
+    <span class="symbol" style="left: 10%; animation-duration: 6s;">X</span>
+    <span class="symbol" style="left: 25%; animation-duration: 4s;">O</span>
+    <span class="symbol" style="left: 40%; animation-duration: 5.5s;">X</span>
+    <span class="symbol" style="left: 55%; animation-duration: 3.5s;">O</span>
+    <span class="symbol" style="left: 70%; animation-duration: 5s;">X</span>
+    <span class="symbol" style="left: 85%; animation-duration: 4.5s;">O</span>
+
+    <div class="start-container">
+        <h1>Welcome to Tic-Tac-Toe</h1>
+        <button class="start-btn">Start Game</button>
+    </div>
+
+    <script>
+        const startButton = document.querySelector('.start-btn');
+        
+        startButton.addEventListener('click', (event) => {
+            // Add animation class to button
+            startButton.classList.add('click-animation');
+            
+            // Delay the navigation until the animation completes (0.8s)
+            setTimeout(() => {
+                window.location.href = 'second.html';
+            }, 800);
+        });
+    </script>
+</body>
+</html>
